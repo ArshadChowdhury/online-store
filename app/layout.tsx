@@ -4,7 +4,7 @@ import Footer from "@/components/common/Footer";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 
-const inter = Roboto({
+const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
 });
@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          inter.className &&
-          "bg-gradient-to-tl from-slate-900 via-slate-400 to to-slate-100"
+          roboto.className &&
+          "bg-gradient-to-tl from-slate-600 via-slate-400 to to-slate-50"
         }
       >
         <Header />
