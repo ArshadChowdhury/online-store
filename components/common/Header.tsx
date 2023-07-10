@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
+import { XMarkIcon, Bars3Icon, UserIcon } from "@heroicons/react/24/outline";
 
 const Header = () => {
   const [mobileNavBar, setMobileNavBar] = useState(false);
 
   useEffect(() => {
-    mobileNavBar ? document.body.classList.add("overflow-hidden") : document.body.classList.remove("overflow-hidden");
-  }, [mobileNavBar])
-  
+    mobileNavBar
+      ? document.body.classList.add("overflow-hidden")
+      : document.body.classList.remove("overflow-hidden");
+  }, [mobileNavBar]);
+
   const hoverStyle = {
     hover: "hover:text-teal-600 hover:border-b-2 hover:border-teal-600",
   };
@@ -46,10 +48,10 @@ const Header = () => {
                 Contact
               </Link>
               <Link
-                className="bg-slate-600 text-slate-50 px-4 py-2 rounded-md hover:text-teal-600 hover:bg-slate-100"
+                className="flex items-center gap-2 bg-slate-600 text-slate-50 px-4 py-2 rounded-md hover:text-teal-600 hover:bg-slate-100"
                 href={"/sign-up"}
               >
-                Sign Up / Login
+                <UserIcon className="w-5" /> Account
               </Link>
             </div>
           </nav>
@@ -106,10 +108,10 @@ const Header = () => {
             </Link>
             <Link
               onClick={() => setMobileNavBar(!mobileNavBar)}
-              className="bg-slate-600 text-slate-50 px-4 py-2 rounded-md hover:text-teal-600 hover:bg-slate-100"
+              className="flex gap-2 bg-slate-600 text-slate-50 px-4 py-2 rounded-md hover:text-teal-600 hover:bg-slate-100"
               href={"/sign-up"}
             >
-              Sign Up / Login
+             <UserIcon className="w-5" /> Account
             </Link>
           </div>
         </nav>

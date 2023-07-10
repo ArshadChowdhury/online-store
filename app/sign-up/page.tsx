@@ -186,7 +186,7 @@ const SignUpPage = () => {
               </button>
               <div className="py-5 text-center lg:text-left">
                 Already a member ?{" "}
-                <Link href="/sign-up/login" className="text-sky-600">
+                <Link href="/login" className="text-sky-600">
                   Login here
                 </Link>
               </div>
