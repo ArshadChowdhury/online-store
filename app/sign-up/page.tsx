@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
+
 import { useFormik } from "formik";
 import * as yup from "yup";
-import Link from "next/link";
+
 import { formInputStyles } from "../../components/FormInputStyles";
 
 // password rules to check if the password is strong enough
@@ -26,7 +28,7 @@ const signUpSchema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password")], "Passwords must match")
     .required("Confirm password is required"),
-  profileImage: yup.mixed().nullable().required("Profile image is required")
+  profileImage: yup.mixed().nullable().required("Profile image is required"),
 });
 
 const SignUpPage = () => {
@@ -46,14 +48,13 @@ const SignUpPage = () => {
     },
     validationSchema: signUpSchema,
   });
-  
 
   return (
     <>
       <div className="flex justify-center items-center">
         <div className="w-full md:w-11/12 flex flex-col items-center">
-          <h1 className="py-10 font-bold text-3xl">Sign Up</h1>
-          <div className="bg-gray-300 h-4/5 w-full lg:w-1/2 rounded-md">
+          <h1 className="py-10 font-bold text-3xl text-gray-700">Sign Up</h1>
+          <div className="bg-gray-300 h-4/5 w-11/12 lg:w-1/2 rounded-md">
             <form
               className="px-10 flex flex-col mt-8"
               onSubmit={formik.handleSubmit}
@@ -100,7 +101,7 @@ const SignUpPage = () => {
               <input
                 id="email"
                 name="email"
-                type="email"
+                type="text"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
@@ -179,11 +180,11 @@ const SignUpPage = () => {
 
               <button
                 type="submit"
-                className="mt-4 py-2 bg-gray-200 w-1/4 rounded-lg hover:bg-slate-600 hover:text-white"
+                className="mt-4 py-2 bg-gray-200 min-w-1/4 rounded-lg hover:bg-slate-600 hover:text-white"
               >
                 Submit
               </button>
-              <div className="py-5">
+              <div className="py-5 text-center lg:text-left">
                 Already a member ?{" "}
                 <Link href="/sign-up/login" className="text-sky-600">
                   Login here
